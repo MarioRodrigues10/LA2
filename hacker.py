@@ -15,21 +15,20 @@ dando prioridade aos cartões com mais digitos descobertos e, em caso de igualda
 neste critério, aos emails menores (em ordem lexicográfica).
 """
 import unittest
+import collections
 
-
+# 40 %
 def hacker(log):
     log.sort(key=lambda x: x[1])
     cartao_temp = (log[0][0], log[0][1])
     cartao_final = []
     temp = log[0][1]
-    print(temp)
     for i in range(0, len(log)):
         if log[i][1] == temp:
             cartao_temp = (cartao_temp[0], cartao_temp[1])
             cartao_temp = (cartao_temp[0], log[i][1])
             for j in range(len(log[i][0])):
                 if log[i][0][j] != "*":
-                    print(log[i][0][j])
                     cartao_temp = (cartao_temp[0][:j] + log[i][0][j] + cartao_temp[0][j + 1:], cartao_temp[1])
             cartao_final.append(cartao_temp)
         else:
@@ -42,7 +41,7 @@ def hacker(log):
 
     cartao_final.append(cartao_temp)
     cartao_final.sort(key=lambda x: (x[0].count("*"), x[1]))
-    cartao_final = list(dict.fromkeys(cartao_final))
+    cartao_final = list(collections.OrderedDict.fromkeys(cartao_final))
             
     return cartao_final
 
@@ -71,3 +70,4 @@ class hackerTest(unittest.TestCase):
 
 if __name__ == '__main__':
     main()
+    unittest.main()

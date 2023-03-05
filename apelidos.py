@@ -5,6 +5,7 @@ por ordem crescente do número de apelidos (todos menos o primeiro nome). No cas
 devem ser listadas por ordem lexicográfica do nome completo.
 '''
 
+# 100%
 def apelidos(nomes):
     nomes.sort(key=lambda x: (len(x.split())-1, x))
     return nomes

@@ -5,7 +5,7 @@ def main():
     print("in:", prefs)
     print("out:", aloca(prefs))
 
-
+# 100%
 def aloca(prefs):
     sort_dictionary = collections.OrderedDict(sorted(prefs.items()))
     for num in sort_dictionary.copy():
