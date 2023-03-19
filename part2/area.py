@@ -19,25 +19,20 @@ def area(p, mapa):
     if m == 0:
         return 0
 
-    # matriz de visitados
     visited = [[False for _ in range(m)] for _ in range(n)]
 
-    # fila de busca
     queue = [(p[0], p[1])]
     visited[p[0]][p[1]] = True
 
-    # contador de células visitadas
     count = 1
 
     while len(queue) > 0:
         x, y = queue.pop(0)
 
-        # verificação das células vizinhas
         for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             nx = x + dx
             ny = y + dy
 
-            # se a célula vizinha estiver dentro dos limites do mapa e for um espaço vazio e não visitado, adicioná-la à fila de busca
             if 0 <= nx < n and 0 <= ny < m and mapa[nx][ny] == '.' and not visited[nx][ny]:
                 queue.append((nx, ny))
                 visited[nx][ny] = True

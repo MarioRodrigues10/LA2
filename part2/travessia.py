@@ -18,7 +18,6 @@ def travessia(mapa):
     nrows, ncols = len(mapa), len(mapa[0])
     INF = float('inf')
 
-    # Compute the minimum cost of crossing the region
     dp = [[INF] * ncols for _ in range(nrows)]
     for j in range(ncols):
         dp[0][j] = 0
@@ -33,7 +32,6 @@ def travessia(mapa):
                         cost = diff + 1
                         dp[i][j] = min(dp[i][j], dp[ni][nj] + cost)
 
-    # Find the minimum cost starting position
     min_cost = INF
     start_col = -1
     for j in range(ncols):

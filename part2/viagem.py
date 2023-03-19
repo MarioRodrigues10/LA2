@@ -9,7 +9,6 @@ Assuma que cada rota funciona nos dois sentidos.
 '''
 import heapq
 def viagem(rotas, o, d):
-    # Create a dictionary with all the routes
     routes = {}
     for r in rotas:
         for i in range(len(r) - 2):
@@ -19,7 +18,6 @@ def viagem(rotas, o, d):
             else:
                 routes[(origin, dest)] = cost
 
-    # Use Dijkstra's algorithm to find the cheapest path
     q = [(0, o)]
     visited = set()
     while q:
