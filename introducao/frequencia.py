@@ -11,6 +11,7 @@ def frequencia(texto):
     lista = texto.split()
     lista.sort()
     lista = collections.Counter(lista).most_common()
+    print(lista)
     lista = sorted(lista, key=lambda x: (-x[1], x[0]))
     lista = [x[0] for x in lista]
     return lista
